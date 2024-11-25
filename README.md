@@ -160,3 +160,36 @@ done
 ```
 
 ### 3_
+
+```powershell
+[root@localhost /]# ausearch -k etc_changes > /var/log/audit_etc.log
+```
+```powershell
+[root@localhost /]# cat var/log/audit_etc.log
+```
+
+## Étape 5
+
+### 1_
+
+```powershell
+[root@localhost /]# firewall-cmd --list-all
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --add-port=80/tcp
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --add-port=22/tcp
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --add-port=443/tcp
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --add-service http
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --remove-service cockpit
+```
+```powershell
+[root@localhost /]# firewall-cmd --permanent --remove-service dhcpv6-client
+```
